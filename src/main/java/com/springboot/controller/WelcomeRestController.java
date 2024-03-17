@@ -85,7 +85,7 @@ public class WelcomeRestController {
 		
 		System.out.println(product);
 		
-		String msg = "Successfully inserted product record";
+		String msg = "Successfully saved product record";
 		return new ResponseEntity<>(msg, HttpStatus.CREATED);
 	}
 	
