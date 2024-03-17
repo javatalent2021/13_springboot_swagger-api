@@ -1,0 +1,4 @@
+com\springboot\Application.class
+com\springboot\config\SwaggerConfig.class
+com\springboot\bindings\Product.class
+com\springboot\controller\WelcomeRestController.class
