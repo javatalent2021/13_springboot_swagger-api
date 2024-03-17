@@ -3,6 +3,9 @@ package com.springboot.controller;
 import java.util.Arrays;
 import java.util.List;
 
+import org.slf4j.ILoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +22,10 @@ import io.swagger.annotations.Api;
 @RestController
 @Api("this is product details api")
 public class WelcomeRestController {
-	
+
+	Logger logger = LoggerFactory.getLogger(WelcomeRestController.class);
+
+
 	@GetMapping("/welcome")
 	public ResponseEntity<String> getWelcome(){
 		
@@ -29,7 +35,7 @@ public class WelcomeRestController {
 	
 	@GetMapping("/greet")
 	public ResponseEntity<String> getWelcome(@RequestParam("name") String name){
-		
+		logger.info("NAME OF BOOK "+name);
 		String responsePayload ="Hi "+name +" Good Morning";
 		return new ResponseEntity<>(responsePayload, HttpStatus.OK);
 	}
@@ -38,6 +44,7 @@ public class WelcomeRestController {
 	public ResponseEntity<String> getWelcome(@PathVariable("name") String name,@PathVariable("price") String price){
 		
 		String responsePayload ="Book Name is : "+name +" And Book Price is :"+price;
+
 		return new ResponseEntity<>(responsePayload, HttpStatus.OK);
 	}
 	
